@@ -111,6 +111,5 @@ def shortest_path(start, end, maze):
     # in path list we return the first list containing end tuple
     for shortest_list in path_list:
         if shortest_list[-1] == end:
-            print(shortest_list)
             return shortest_list
     pass
