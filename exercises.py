@@ -12,25 +12,16 @@ def is_anagram(s1, s2):
     """
 
     try:
-        bool_s1 = isinstance(s1, str)
-        bool_s2 = isinstance(s2, str)
-        # check s1 and s2 type
-        if bool_s1 and bool_s2:
-            # check s1 and s2 length
-            if len(s1) == len(s2):
-                # create a lists for s1 and s2
-                list_s1 = list(s1)
-                list_s2 = list(s2)
-                list_s1.sort()
-                list_s2.sort()
-                # compare list_string_one and list_string_two
-                return True if list_s1 == list_s2 else False
-            else:
-                return False
+        # check s1 and s2 length
+        if len(s1) == len(s2):
+            # create a lists for s1 and s2
+            list_s1 = sorted(s1)
+            list_s2 = sorted(s2)
+            # compare list_string_one and list_string_two
+            return True if list_s1 == list_s2 else False
         else:
-            # raise exception if var are not str
-            raise Exception(s1, s2)
-    except Exception as e:
+            return False
+    except TypeError as e:
         print("Program stopped. {}: Values aren't both str -> {}.".format(type(e), e))
         sys.exit(1)
 
