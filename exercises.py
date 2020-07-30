@@ -38,27 +38,22 @@ def check_parenthesis_consistency(string):
     """
 
     try:
-        # check string type
-        if isinstance(string, str):
-            start_char = '('
-            end_char = ')'
-            # compare number of chars '(' and ')' in string
-            if string.count(start_char) == string.count(end_char):
-                counter = 0
-                for char in string:
-                    if char == start_char:
-                        counter += 1
-                    if char == end_char:
-                        counter -= 1
-                    if counter < 0:
-                        return False
-                return True if counter == 0 else False
-            else:
-                return False
-        else:
-            # raise exception if var is not str
-            raise Exception(string)
-    except Exception as e:
+        start_char = '('
+        end_char = ')'
+        # compare number of chars '(' and ')' in string
+        if string.count(start_char) == string.count(end_char):
+            counter = 0
+            for char in string:
+                if char == start_char:
+                    counter += 1
+                if char == end_char:
+                    counter -= 1
+                if counter < 0:
+                    return False
+             return True if counter == 0 else False
+         else:
+             return False
+    except TypeError as e:
         print("Program stopped. {}: Value isn't str -> {} is {}.".format(type(e), e, type(string)))
         sys.exit(1)
 
