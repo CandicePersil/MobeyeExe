@@ -84,6 +84,8 @@ def shortest_path(start, end, maze):
         # then replace it by list of path tuples
         path = queue.popleft()
         path_list.append(path)
+        if path == end:
+            return path_list
         # get the last tuple in path
         x, y = path[-1]
         # scan and assign x and y with possible values
@@ -94,8 +96,4 @@ def shortest_path(start, end, maze):
                 if maze[x_coord][y_coord] != 0 and (x_coord, y_coord) not in seen:
                     queue.append(path + [(x_coord, y_coord)])
                     seen.add((x_coord, y_coord))
-    # in path list we return the first list containing end tuple
-    for shortest_list in path_list:
-        if shortest_list[-1] == end:
-            return shortest_list
     pass
